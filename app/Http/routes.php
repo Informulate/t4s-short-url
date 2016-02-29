@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return \Illuminate\Support\Facades\Redirect::to('https://talent4startups.org/oix');
+Route::get('/{referral?}', function ($referral = null) {
+
+	if ($referral) {
+		$referral = "?referral={$referral}";
+	}
+
+    return \Illuminate\Support\Facades\Redirect::to('https://talent4startups.org/'.$referral);
 });
